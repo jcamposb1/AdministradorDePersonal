@@ -1,0 +1,172 @@
+:root {
+    --supra-green-dark: #1b5e20;
+    --supra-green-base: #2e7d32;
+    --supra-green-light: #4caf50;
+    --supra-green-subtle: #e8f5e9;
+
+    --supra-orange-dark: #e65100;
+    --supra-orange-base: #f57c00;
+    --supra-orange-subtle: #fff3e0;
+
+    --supra-yellow-base: #fbc02d;
+    --supra-yellow-subtle: #fffde7;
+
+    --surface-bg: #f4f7f5;
+    --surface-card: #ffffff;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --border-soft: rgba(0, 0, 0, 0.06);
+}
+
+body {
+    background-color: var(--surface-bg);
+    color: var(--text-primary);
+    font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+    min-height: 100vh;
+}
+
+/* Header Corporativo con gradiente degradado verde y línea de acento naranja */
+.header-supra {
+    background: linear-gradient(135deg, var(--supra-green-dark) 0%, var(--supra-green-base) 100%);
+    border-bottom: 4px solid var(--supra-orange-base);
+    color: #ffffff;
+    box-shadow: 0 4px 20px rgba(27, 94, 32, 0.15);
+}
+
+.brand-badge {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 6px 12px;
+    border-radius: 30px;
+    font-size: 0.82rem;
+    letter-spacing: 0.5px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.user-pill {
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 50px;
+    padding: 6px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-salir {
+    background-color: #ffffff;
+    color: #c62828;
+    border: none;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 6px 14px;
+    transition: all 0.2s ease;
+}
+
+.btn-salir:hover {
+    background-color: #ffebee;
+    color: #b71c1c;
+    transform: translateY(-1px);
+}
+
+/* Tarjetas de Módulos */
+.card-modulo {
+    border: 1px solid var(--border-soft);
+    border-radius: 16px;
+    background: var(--surface-card);
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.card-modulo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    transition: width 0.25s ease;
+}
+
+.card-modulo.acento-verde::before {
+    background: linear-gradient(180deg, var(--supra-green-base), var(--supra-green-light));
+}
+.card-modulo.acento-naranja::before {
+    background: linear-gradient(180deg, var(--supra-orange-dark), var(--supra-orange-base));
+}
+.card-modulo.acento-amarillo::before {
+    background: linear-gradient(180deg, var(--supra-yellow-base), #ffa000);
+}
+
+.card-modulo:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 28px -6px rgba(0, 0, 0, 0.1);
+    color: inherit;
+}
+
+.card-modulo:hover::before {
+    width: 8px;
+}
+
+/* Iconos temáticos */
+.icon-box {
+    width: 54px;
+    height: 54px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    transition: transform 0.25s ease;
+}
+
+.card-modulo:hover .icon-box {
+    transform: scale(1.08);
+}
+
+.acento-verde .icon-box {
+    background-color: var(--supra-green-subtle);
+    color: var(--supra-green-base);
+}
+.acento-naranja .icon-box {
+    background-color: var(--supra-orange-subtle);
+    color: var(--supra-orange-base);
+}
+.acento-amarillo .icon-box {
+    background-color: var(--supra-yellow-subtle);
+    color: #f57f17;
+}
+
+.modulo-tag {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 3px 8px;
+    border-radius: 6px;
+}
+
+.tag-verde { background-color: var(--supra-green-subtle); color: var(--supra-green-dark); }
+.tag-naranja { background-color: var(--supra-orange-subtle); color: var(--supra-orange-dark); }
+.tag-amarillo { background-color: var(--supra-yellow-subtle); color: #e65100; }
+
+.action-arrow {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #f8fafc;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.card-modulo:hover .action-arrow {
+    background-color: var(--supra-green-base);
+    color: #ffffff;
+    transform: translateX(3px);
+}
