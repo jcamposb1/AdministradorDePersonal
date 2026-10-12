@@ -9,3 +9,7 @@ $routes->get('auth/logout','AuthController::logout');
 
 $routes->get('dashboard', 'DashboardController::index');
 $routes->get('personal', 'PersonalController::index');
+
+$routes->post('personal/guardar', 'PersonalController::guardar');
+$routes->post('personal/estado/(:num)', 'PersonalController::cambiarEstado/$1');
+$routes->post('personal/eliminar/(:num)', 'PersonalController::eliminar/$1');

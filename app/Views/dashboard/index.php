@@ -17,7 +17,7 @@
 </head>
 <body>
 
-    <!-- Header Corporativo Supra Live -->
+    <!-- Header Corporativo SupraLive -->
     <header class="header-supra py-3">
         <div class="container d-flex flex-wrap justify-content-between align-items-center gap-3">
             <div class="d-flex align-items-center gap-3">
@@ -25,7 +25,7 @@
                     <i class="bi bi-recycle text-success fs-4"></i>
                 </div>
                 <div>
-                    <h5 class="fw-bold mb-0 text-white">Supra Live</h5>
+                    <h5 class="fw-bold mb-0 text-white">SupraLive</h5>
                     <span class="small text-white-50">Sistema de Gestión Sostenible de Personal</span>
                 </div>
             </div>

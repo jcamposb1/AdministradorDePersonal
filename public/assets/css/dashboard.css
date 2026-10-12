@@ -170,3 +170,93 @@ body {
     color: #ffffff;
     transform: translateX(3px);
 }
+
+/* ===== Tabla de personal: compacta, con scroll y encabezado fijo ===== */
+.contenedor-tabla {
+    max-height: calc(100vh - 300px);
+    overflow-y: auto;
+}
+
+.tabla-personal {
+    font-size: 0.82rem;
+}
+
+.tabla-personal th,
+.tabla-personal td {
+    padding: 0.3rem 0.7rem;
+    white-space: nowrap;
+}
+
+.tabla-personal thead th {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: #f1f3f5;
+    box-shadow: inset 0 -1px 0 #dee2e6;
+}
+
+/* ===== Un color por zona ===== */
+.badge-zona {
+    font-weight: 600;
+    padding: 0.35em 0.8em;
+    border-radius: 20px;
+}
+.zona-0 { background: #d1e7dd; color: #0f5132; }
+.zona-1 { background: #cfe2ff; color: #084298; }
+.zona-2 { background: #fff3cd; color: #664d03; }
+.zona-3 { background: #f8d7da; color: #842029; }
+.zona-4 { background: #e2d9f3; color: #432874; }
+.zona-5 { background: #ffe5d0; color: #8a3b00; }
+.zona-6 { background: #d2f4ea; color: #0a6b54; }
+.zona-7 { background: #e9ecef; color: #343a40; }
+
+/* ===== Modal Agregar Personal ===== */
+.modal-header-supra {
+    background: linear-gradient(135deg, #1b5e20, #388e3c);
+    border-bottom: 3px solid #f57c00;
+}
+
+.foto-upload {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 0.5rem;
+    border-radius: 50%;
+    border: 3px dashed #a5d6a7;
+    background: #f1f8f4 center / cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    color: #2e7d32;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.foto-upload i { font-size: 2rem; }
+.foto-upload:hover { border-color: #2e7d32; background-color: #e8f5e9; }
+.foto-upload.tiene-foto { border-style: solid; }
+.foto-upload.tiene-foto i,
+.foto-upload.tiene-foto span { display: none; }
+
+/* ===== Avatares en la tabla ===== */
+.avatar-emp {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+.avatar-iniciales {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #e8f5e9;
+    color: #2e7d32;
+    font-size: 0.65rem;
+    font-weight: 700;
+}
+
+/* ===== Empleado inactivo (se ve apagado) ===== */
+.fila-inactiva td:not(:last-child) { opacity: 0.55; }

@@ -6,67 +6,46 @@ namespace App\Entities;
 
 use CodeIgniter\Entity\Entity;
 
-class EmpleadoEntity extends Entity
+class UsuarioEntity extends Entity
 {
     protected $attributes = [
-        'IDempleado'       => null,
-        'cedula'           => null,
-        'nombresApellidos' => null,
-        'fechaNacimiento'  => null,
-        'fechaIngreso'     => null,
-        'IDempleador'      => null,
-        'IDcargo'          => null,
-        'IDzona'           => null,
-        'IDestado'         => null,
-        // Propiedades hidratadas por los JOINs
-        'nombre_empleador' => null,
-        'nombre_cargo'     => null,
-        'nombre_zona'      => null,
-        'nombre_estado'    => null,
+        'IDusuario'     => null,
+        'nombres'       => null,
+        'apellidos'     => null,
+        'usuario'       => null,
+        'contrasenia'   => null,
+        'correo'        => null,
+        'IDnivelAcceso' => null,
+        'IDestado'      => null,
     ];
 
-    protected $dates = ['fechaNacimiento', 'fechaIngreso', 'fechacreacion'];
-
-    public function getId(): int
+    public function getIdUsuario(): int
     {
-        return (int) $this->attributes['IDempleado'];
-    }
-
-    public function getCedula(): string
-    {
-        return (string) $this->attributes['cedula'];
+        return (int) $this->attributes['IDusuario'];
     }
 
     public function getNombreCompleto(): string
     {
-        return (string) $this->attributes['nombresApellidos'];
+        return trim(($this->attributes['nombres'] ?? '') . ' ' . ($this->attributes['apellidos'] ?? ''));
     }
 
-    public function getEmpleador(): string
+    public function getUsuario(): string
     {
-        return (string) ($this->attributes['nombre_empleador'] ?? 'No Asignado');
+        return (string) $this->attributes['usuario'];
     }
 
-    public function getCargo(): string
+    public function getCorreo(): string
     {
-        return (string) ($this->attributes['nombre_cargo'] ?? 'Sin Cargo');
+        return (string) ($this->attributes['correo'] ?? '');
     }
 
-    public function getZona(): string
+    public function getNivelAcceso(): int
     {
-        return (string) ($this->attributes['nombre_zona'] ?? 'Sin Zona');
+        return (int) $this->attributes['IDnivelAcceso'];
     }
 
-    public function getEstado(): string
+    public function passwordCoincide(string $password): bool
     {
-        return (string) ($this->attributes['nombre_estado'] ?? 'Desconocido');
-    }
-
-    public function getFechaIngresoFormateada(): string
-    {
-        if (empty($this->attributes['fechaIngreso'])) {
-            return 'N/A';
-        }
-        return date('d/m/Y', strtotime((string)$this->attributes['fechaIngreso']));
+        return password_verify($password, (string) $this->attributes['contrasenia']);
     }
 }
