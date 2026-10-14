@@ -13,3 +13,4 @@ $routes->get('personal', 'PersonalController::index');
 $routes->post('personal/guardar', 'PersonalController::guardar');
 $routes->post('personal/estado/(:num)', 'PersonalController::cambiarEstado/$1');
 $routes->post('personal/eliminar/(:num)', 'PersonalController::eliminar/$1');
+$routes->get('grupos-trabajo', 'GrupoTrabajoController::MostrarGrupoTrabajo');

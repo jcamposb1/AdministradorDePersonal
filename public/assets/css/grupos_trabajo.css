@@ -1,0 +1,136 @@
+/* Listado Grupo Trabajo: mismo lenguaje visual del Excel (barra verde, sub área en rojo, escuelita en durazno) */
+
+:root {
+    --gt-verde-barra: #b9e4a1;
+    --gt-verde-texto: #17340f;
+    --gt-rojo: #c0392b;
+    --gt-durazno: #fbe3d6;
+    --gt-borde: #8d949b;
+    --gt-gris: #6c757d;
+}
+
+.chip-resumen {
+    background: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 999px;
+    padding: .25rem .8rem;
+    font-size: .85rem;
+    color: #495057;
+}
+.chip-resumen strong { color: #212529; }
+.chip-vacantes { border-color: #f1b0a8; }
+.chip-vacantes strong { color: var(--gt-rojo); }
+
+/* Buscador + navegación por áreas */
+.barra-herramientas {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: #f8f9fa;
+    padding: .6rem 0;
+    border-bottom: 1px solid #e3e6e8;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .75rem;
+}
+.buscador { width: 280px; }
+.nav-areas {
+    display: flex;
+    gap: .35rem;
+    overflow-x: auto;
+    white-space: nowrap;
+    flex: 1 1 320px;
+    padding-bottom: 2px;
+}
+.nav-areas a {
+    font-size: .78rem;
+    text-decoration: none;
+    color: var(--gt-verde-texto);
+    background: #fff;
+    border: 1px solid #cfe6c3;
+    border-radius: 6px;
+    padding: .2rem .6rem;
+}
+.nav-areas a:hover { background: var(--gt-verde-barra); }
+.nav-areas a:focus-visible,
+.buscador input:focus-visible { outline: 2px solid #198754; outline-offset: 2px; }
+
+/* Estructura */
+.bloque-area { margin-bottom: 1.75rem; scroll-margin-top: 4.5rem; }
+
+.barra-area {
+    background: var(--gt-verde-barra);
+    color: var(--gt-verde-texto);
+    font-size: .95rem;
+    font-weight: 700;
+    margin: 0 0 .75rem;
+    padding: .3rem .75rem;
+    border-radius: 3px;
+}
+
+.bloque-subarea { margin-bottom: 1rem; }
+
+.titulo-subarea {
+    color: var(--gt-rojo);
+    font-size: .95rem;
+    font-weight: 700;
+    margin: 0 0 .5rem;
+}
+.titulo-subarea small {
+    color: var(--gt-gris);
+    font-weight: 400;
+    margin-left: .5rem;
+}
+
+/* Grupo */
+.etiqueta-escuelita {
+    color: var(--gt-rojo);
+    font-weight: 700;
+    font-size: .8rem;
+    text-align: center;
+    margin-bottom: .15rem;
+}
+
+.tabla-grupo {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .76rem;
+    line-height: 1.2;
+    background: #fff;
+}
+.tabla-grupo td {
+    border: 1px solid var(--gt-borde);
+    padding: .12rem .45rem;
+    vertical-align: middle;
+}
+.grupo-escuelita .tabla-grupo td:not(.letra-grupo) { background: var(--gt-durazno); }
+
+.letra-grupo {
+    width: 2rem;
+    text-align: center;
+    font-weight: 700;
+    font-size: .9rem;
+    background: #f1f3f5;
+}
+.col-nombre { font-weight: 500; }
+.col-cargo { color: #495057; white-space: nowrap; }
+.col-empleador { width: 1%; white-space: nowrap; text-align: center; }
+
+.vacante { color: #9aa0a6; font-style: italic; font-weight: 400; }
+.sin-puestos { color: var(--gt-gris); font-style: italic; }
+
+.insignia-empleador {
+    display: inline-block;
+    font-size: .62rem;
+    font-weight: 600;
+    color: #0b5ed7;
+    background: #e7f0ff;
+    border-radius: 4px;
+    padding: 0 .35rem;
+}
+
+@media (max-width: 575.98px) {
+    .buscador { width: 100%; }
+    .col-cargo { white-space: normal; }
+}
