@@ -5,7 +5,7 @@ namespace App\Models;
 use CodeIgniter\Model;
 use App\Entities\UsuarioEntity;
 class UsuarioModel extends Model{
-    protected $table            = 'USUARIOS';
+    protected $table            = 'usuarios';
     protected $primaryKey       = 'IDusuario';
     protected $returnType       = UsuarioEntity::class;
     protected $useSoftDeletes   = true;

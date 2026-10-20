@@ -60,6 +60,10 @@
 .bloque-area { margin-bottom: 1.75rem; scroll-margin-top: 4.5rem; }
 
 .barra-area {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .75rem;
     background: var(--gt-verde-barra);
     color: var(--gt-verde-texto);
     font-size: .95rem;
@@ -72,6 +76,9 @@
 .bloque-subarea { margin-bottom: 1rem; }
 
 .titulo-subarea {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
     color: var(--gt-rojo);
     font-size: .95rem;
     font-weight: 700;
@@ -84,13 +91,22 @@
 }
 
 /* Grupo */
+.cabecera-grupo {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    margin-bottom: .15rem;
+}
+
 .etiqueta-escuelita {
+    flex: 1;
     color: var(--gt-rojo);
     font-weight: 700;
     font-size: .8rem;
     text-align: center;
-    margin-bottom: .15rem;
 }
+
+.acciones-grupo { gap: .25rem; margin-left: auto; }
 
 .tabla-grupo {
     width: 100%;
@@ -118,6 +134,7 @@
 .col-empleador { width: 1%; white-space: nowrap; text-align: center; }
 
 .vacante { color: #9aa0a6; font-style: italic; font-weight: 400; }
+.col-nombre .vacante { font-weight: 400; }
 .sin-puestos { color: var(--gt-gris); font-style: italic; }
 
 .insignia-empleador {
@@ -133,4 +150,70 @@
 @media (max-width: 575.98px) {
     .buscador { width: 100%; }
     .col-cargo { white-space: normal; }
+}
+
+/* ---- Modo edición ---- */
+.solo-edicion { display: none; }
+.modo-edicion .solo-edicion { display: inline-block; }
+.modo-edicion .barra-area .solo-edicion,
+.modo-edicion .titulo-subarea .solo-edicion { display: inline-flex; align-items: center; gap: .25rem; }
+.modo-edicion .acciones-grupo { display: flex; }
+.modo-edicion .aviso-edicion { display: block; }
+
+.aviso-edicion {
+    background: #fff8e1;
+    border: 1px solid #f1dd9b;
+    border-radius: 6px;
+    padding: .45rem .75rem;
+    font-size: .85rem;
+    color: #5f4b00;
+}
+
+.modo-edicion .persona {
+    cursor: grab;
+    border-bottom: 1px dashed #9aa0a6;
+}
+.persona.arrastrando { opacity: .4; }
+
+.tabla-grupo tr.puesto.destino td {
+    background: #d9f0dc !important;
+    outline: 2px solid #198754;
+    outline-offset: -2px;
+}
+
+.btn-asignar {
+    border: 0;
+    background: none;
+    color: #198754;
+    padding: 0 .3rem;
+    margin-left: .35rem;
+    line-height: 1;
+}
+.btn-asignar:hover { color: #0f5132; }
+.btn-asignar:focus-visible { outline: 2px solid #198754; outline-offset: 1px; border-radius: 3px; }
+
+/* ---- Confirmaciones ---- */
+.intercambio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .75rem;
+    flex-wrap: wrap;
+}
+
+.intercambio-persona {
+    flex: 1 1 9rem;
+    text-align: center;
+    background: #f1f8ee;
+    border: 1px solid #cfe6c3;
+    border-radius: 8px;
+    padding: .6rem .75rem;
+    font-size: .85rem;
+    font-weight: 600;
+    color: var(--gt-verde-texto);
+}
+
+.intercambio-flecha {
+    font-size: 1.25rem;
+    color: var(--gt-gris);
 }
